@@ -1,0 +1,104 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0116D298 .scope module, "full_adder_tb" "full_adder_tb" 2 1;
+ .timescale 0 0;
+v0119EED8_0 .var "aa", 0 0;
+v0119EF88_0 .var "bb", 0 0;
+v0119F350_0 .var "cc", 0 0;
+v0119F140_0 .net "cy", 0 0, L_0119F6C8; 1 drivers
+v0119F1F0_0 .net "ss", 0 0, L_01163C38; 1 drivers
+S_0116CBB0 .scope module, "add1" "fulladder" 2 5, 3 1, S_0116D298;
+ .timescale 0 0;
+L_01162C68 .functor XOR 1, v0119EED8_0, v0119EF88_0, C4<0>, C4<0>;
+L_01163C38 .functor XOR 1, L_0119ED20, v0119F350_0, C4<0>, C4<0>;
+L_0119F540 .functor AND 1, v0119EED8_0, v0119EF88_0, C4<1>, C4<1>;
+L_0119F5B0 .functor AND 1, v0119EED8_0, v0119F350_0, C4<1>, C4<1>;
+L_0119F5E8 .functor AND 1, v0119EF88_0, v0119F350_0, C4<1>, C4<1>;
+L_0119F620 .functor OR 1, L_011A0058, L_011A0688, C4<0>, C4<0>;
+L_0119F6C8 .functor OR 1, L_011A0790, L_011A04D0, C4<0>, C4<0>;
+v0116EF90_0 .net *"_s0", 0 0, L_01162C68; 1 drivers
+v01162B70_0 .net *"_s10", 0 0, L_0119F620; 1 drivers
+v01162BC8_0 .net *"_s13", 0 0, L_011A0058; 1 drivers
+v0119F2A0_0 .net *"_s15", 0 0, L_011A0688; 1 drivers
+v0119ECC8_0 .net *"_s17", 0 0, L_011A0790; 1 drivers
+v0119F400_0 .net *"_s19", 0 0, L_011A04D0; 1 drivers
+v0119F198_0 .net *"_s3", 0 0, L_0119ED20; 1 drivers
+v0119EF30_0 .net *"_s4", 0 0, L_0119F540; 1 drivers
+v0119F038_0 .net *"_s6", 0 0, L_0119F5B0; 1 drivers
+v0119EDD0_0 .net *"_s8", 0 0, L_0119F5E8; 1 drivers
+v0119EE28_0 .net "a", 0 0, v0119EED8_0; 1 drivers
+v0119EE80_0 .net "b", 0 0, v0119EF88_0; 1 drivers
+v0119F090_0 .net "cin", 0 0, v0119F350_0; 1 drivers
+v0119EFE0_0 .alias "cout", 0 0, v0119F140_0;
+v0119F0E8_0 .alias "sum", 0 0, v0119F1F0_0;
+RS_011A413C/0/0 .resolv tri, L_0119F248, L_0119F3A8, L_0119ED78, L_0119FE48;
+RS_011A413C/0/4 .resolv tri, L_0119FEA0, C4<zzzzz>, C4<zzzzz>, C4<zzzzz>;
+RS_011A413C .resolv tri, RS_011A413C/0/0, RS_011A413C/0/4, C4<zzzzz>, C4<zzzzz>;
+v0119F2F8_0 .net8 "t", 4 0, RS_011A413C; 5 drivers
+L_0119F248 .part/pv L_01162C68, 0, 1, 5;
+L_0119ED20 .part RS_011A413C, 0, 1;
+L_0119F3A8 .part/pv L_0119F540, 1, 1, 5;
+L_0119ED78 .part/pv L_0119F5B0, 2, 1, 5;
+L_0119FE48 .part/pv L_0119F5E8, 3, 1, 5;
+L_0119FEA0 .part/pv L_0119F620, 4, 1, 5;
+L_011A0058 .part RS_011A413C, 1, 1;
+L_011A0688 .part RS_011A413C, 2, 1;
+L_011A0790 .part RS_011A413C, 4, 1;
+L_011A04D0 .part RS_011A413C, 3, 1;
+    .scope S_0116D298;
+T_0 ;
+    %set/v v0119EED8_0, 0, 1;
+    %set/v v0119EF88_0, 0, 1;
+    %set/v v0119F350_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0119EED8_0, 0, 1;
+    %set/v v0119EF88_0, 0, 1;
+    %set/v v0119F350_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0119EED8_0, 0, 1;
+    %set/v v0119EF88_0, 1, 1;
+    %set/v v0119F350_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0119EED8_0, 0, 1;
+    %set/v v0119EF88_0, 1, 1;
+    %set/v v0119F350_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0119EED8_0, 1, 1;
+    %set/v v0119EF88_0, 0, 1;
+    %set/v v0119F350_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0119EED8_0, 1, 1;
+    %set/v v0119EF88_0, 0, 1;
+    %set/v v0119F350_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0119EED8_0, 1, 1;
+    %set/v v0119EF88_0, 1, 1;
+    %set/v v0119F350_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0119EED8_0, 1, 1;
+    %set/v v0119EF88_0, 1, 1;
+    %set/v v0119F350_0, 1, 1;
+    %delay 5, 0;
+    %end;
+    .thread T_0;
+    .scope S_0116D298;
+T_1 ;
+    %vpi_call 2 19 "$monitor", $time, " -> a = %b, b = %b, cin = %b, sum = %b, cout = %b", v0119EED8_0, v0119EF88_0, v0119F350_0, v0119F1F0_0, v0119F140_0;
+    %end;
+    .thread T_1;
+    .scope S_0116D298;
+T_2 ;
+    %vpi_call 2 24 "$dumpfile", "full_adder.vcd";
+    %vpi_call 2 25 "$dumpvars", 1'sb0, S_0116D298;
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "full_adder_tb.v";
+    "full_adder.v";
