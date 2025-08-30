@@ -9,6 +9,8 @@ This folder contains Verilog implementations, testbenches, and simulation output
   - `and_gate.vcd`: Waveform output
 - **OR**
   - `or_gate.v`: OR gate module
+  - `or_gate_tb.v`: Testbench
+  - `or_gate.vcd`: Waveform output
 - **NAND**
   - `nand_gate.v`: NAND gate module
   - `nand_gate_tb.v`: Testbench
