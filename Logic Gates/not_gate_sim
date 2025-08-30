@@ -1,0 +1,40 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01152B70 .scope module, "not_gate_tb" "not_gate_tb" 2 1;
+ .timescale 0 0;
+v01154A38_0 .var "a", 0 0;
+v01154A90_0 .net "y", 0 0, L_01157208; 1 drivers
+S_01152BF8 .scope module, "dut" "not_gate" 2 4, 3 3, S_01152B70;
+ .timescale 0 0;
+v01154988_0 .net "a", 0 0, v01154A38_0; 1 drivers
+v011549E0_0 .alias "y", 0 0, v01154A90_0;
+L_01157208 .reduce/nor v01154A38_0;
+    .scope S_01152B70;
+T_0 ;
+    %set/v v01154A38_0, 0, 1;
+    %delay 5, 0;
+    %set/v v01154A38_0, 1, 1;
+    %delay 5, 0;
+    %end;
+    .thread T_0;
+    .scope S_01152B70;
+T_1 ;
+    %vpi_call 2 12 "$monitor", $time, " a = %b, y = %b", v01154A38_0, v01154A90_0;
+    %end;
+    .thread T_1;
+    .scope S_01152B70;
+T_2 ;
+    %vpi_call 2 16 "$dumpfile", "not_gate.vcd";
+    %vpi_call 2 17 "$dumpvars", 1'sb0, S_01152B70;
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "not_gate_tb.v";
+    "not_gate.v";
