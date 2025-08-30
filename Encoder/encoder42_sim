@@ -1,0 +1,70 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01277110 .scope module, "encoder42_tb" "encoder42_tb" 2 1;
+ .timescale 0 0;
+v0127DDB0_0 .var "i0", 0 0;
+v0127DF10_0 .var "i1", 0 0;
+v0127DE08_0 .var "i2", 0 0;
+v0127E070_0 .var "i3", 0 0;
+v0127DC50_0 .net "y0", 0 0, L_0127E440; 1 drivers
+v0127E0C8_0 .net "y1", 0 0, L_0127E888; 1 drivers
+S_012774C8 .scope module, "dut" "encoder42" 2 5, 3 1, S_01277110;
+ .timescale 0 0;
+L_01278B78 .functor AND 1, L_0127E120, L_0127E178, C4<1>, C4<1>;
+L_0127E398 .functor AND 1, L_01278B78, v0127DF10_0, C4<1>, C4<1>;
+L_0127E440 .functor OR 1, v0127E070_0, L_0127E398, C4<0>, C4<0>;
+L_012734D0 .functor AND 1, L_0127DCA8, v0127DE08_0, C4<1>, C4<1>;
+L_0127E888 .functor OR 1, v0127E070_0, L_012734D0, C4<0>, C4<0>;
+v012733C8_0 .net *"_s1", 0 0, L_0127E120; 1 drivers
+v01273420_0 .net *"_s11", 0 0, L_0127DCA8; 1 drivers
+v01273478_0 .net *"_s12", 0 0, L_012734D0; 1 drivers
+v01272B70_0 .net *"_s3", 0 0, L_0127E178; 1 drivers
+v01272BC8_0 .net *"_s4", 0 0, L_01278B78; 1 drivers
+v01272C20_0 .net *"_s6", 0 0, L_0127E398; 1 drivers
+v01278A38_0 .net "i0", 0 0, v0127DDB0_0; 1 drivers
+v01278A90_0 .net "i1", 0 0, v0127DF10_0; 1 drivers
+v01278AE8_0 .net "i2", 0 0, v0127DE08_0; 1 drivers
+v0127DFC0_0 .net "i3", 0 0, v0127E070_0; 1 drivers
+v0127E018_0 .alias "y0", 0 0, v0127DC50_0;
+v0127DBF8_0 .alias "y1", 0 0, v0127E0C8_0;
+L_0127E120 .reduce/nor v0127E070_0;
+L_0127E178 .reduce/nor v0127DE08_0;
+L_0127DCA8 .reduce/nor v0127E070_0;
+    .scope S_01277110;
+T_0 ;
+    %vpi_call 2 8 "$dumpfile", "encoder42.vcd";
+    %vpi_call 2 9 "$dumpvars", 1'sb0, S_01277110;
+    %vpi_call 2 10 "$monitor", "Time = %0t | I0 = %b | I1 = %b | I2 = %b | I3 = %b | Y1 = %b | Y0 = %b", $time, v0127DDB0_0, v0127DF10_0, v0127DE08_0, v0127E070_0, v0127E0C8_0, v0127DC50_0;
+    %set/v v0127DDB0_0, 1, 1;
+    %set/v v0127DF10_0, 0, 1;
+    %set/v v0127DE08_0, 0, 1;
+    %set/v v0127E070_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0127DDB0_0, 0, 1;
+    %set/v v0127DF10_0, 1, 1;
+    %set/v v0127DE08_0, 0, 1;
+    %set/v v0127E070_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0127DDB0_0, 0, 1;
+    %set/v v0127DF10_0, 0, 1;
+    %set/v v0127DE08_0, 1, 1;
+    %set/v v0127E070_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0127DDB0_0, 0, 1;
+    %set/v v0127DF10_0, 0, 1;
+    %set/v v0127DE08_0, 0, 1;
+    %set/v v0127E070_0, 1, 1;
+    %delay 5, 0;
+    %vpi_call 2 18 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "encoder42_tb.v";
+    "encoder42.v";
